@@ -39,6 +39,13 @@ var app = new Vue({
       this.stage = 'results'
     },
 
+    setAnswer: function(index) {
+      this.answer = index + 1;
+      this.$nextTick(function() {
+        this.$refs.nextQuestion.focus();
+      });
+    },
+
     nextQuestion: function() {
       if (this.question && this.correct)
         this.correct_answers += 1;
@@ -82,11 +89,16 @@ var app = new Vue({
       return ranks[ranks.length - 1];
     },
 
-    br: function(s) {
-      if (s.indexOf('</') > 0)
-        return s.replaceAll('\n', '<br>');
-      return s.replaceAll('&', '&amp;').replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;').replaceAll('\n', '<br>');
+    mark: function(s) {
+      return s
+        .replaceAll('&', '&amp;').replaceAll('"', '&quot;')
+        .replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+        .replaceAll(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+        .replaceAll(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+        .replaceAll(/(\*\*|__)(.+?)\1/g, '<b>$2</b>')
+        .replaceAll(/([*_])(.+?)\1/g, '<i>$2</i>')
+        .replaceAll(/`(.+?)`/g, '<code>$1</code>')
+        .replaceAll('\n', '<br>');
     }
   }
 });
