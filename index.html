@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>State of the Map 2020 Quiz</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- script src="https://cdn.jsdelivr.net/npm/vue"></script -->
+    <script src="sotm2020.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+      img { max-width: 100%; max-height: 300px; }
+      .qnum { font-size: 80%; color: gray; }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container-sm mt-3" style="max-width: 540px;">
+      <div v-if="stage == 'intro'">
+        <h2>{{ quiz.title || 'Welcome to the quiz!' }}</h2>
+        <p v-if="quiz.picture"><img :src="'images/' + quiz.picture"></p>
+        <p v-if="quiz.intro" v-html="br(quiz.intro)"></p>
+        <p><button class="btn btn-lg btn-primary" v-on:click="startQuiz">Start the Quiz</button></p>
+      </div>
+      <div v-if="stage == 'quiz'" class="text-center">
+        <p class="qnum">{{ qid + 1 }} / {{ quiz.questions.length }}</p>
+        <p v-if="question.picture"><img :src="'images/' + question.picture"></p>
+        <p class="text-left" v-html="br(question.text)"></p>
+        <div class="btn-group-vertical my-3" style="min-width: 10%;">
+          <button :class="'btn btn-' + buttonStyle(index)" v-bind:disabled="answer > 0 && answer != index + 1" v-for="(a, index) in question.answers" v-on:click="answer = index + 1">{{ a }}<span v-if="question.stats && answer > 0">&nbsp;<span class="badge badge-secondary badge-pill">{{ question.stats[index] }}</span></span></button>
+        </div>
+        <div v-if="answer" class="text-left">
+          <p v-if="correct">Correct!<span v-if="question.stats"> You've answered like {{ percent_answered }}% of players.</span></p>
+          <p v-if="!correct">Sorry, the answer is {{ correct_answer }}.<span v-if="question.stats"> But {{ percent_answered }}% of players agree with you.</span></p>
+          <p v-if="question.explanation" v-html="br(question.explanation)"></p>
+          <p><button class="btn btn-primary" v-on:click="nextQuestion">Next Question</button></p>
+        </div>
+      </div>
+      <div v-if="stage == 'results'">
+        <h2>{{ quiz.title || 'Quiz Results' }}</h2>
+        <p>You have got {{ correct_answers }} out of {{ quiz.questions.length }} answers right.<span v-if="quiz.ranks"> This makes you {{ getRank() }}!</span></p>
+        <p v-if="quiz.afterword" v-html="br(quiz.afterword)"></p>
+      </div>
+    </div>
+    <script src="quiz.js"></script>
+  </body>
+</html>
