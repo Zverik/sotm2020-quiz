@@ -91,14 +91,14 @@ var app = new Vue({
 
     mark: function(s) {
       return s
-        .replaceAll('&', '&amp;').replaceAll('"', '&quot;')
-        .replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-        .replaceAll(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
-        .replaceAll(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-        .replaceAll(/(\*\*|__)(.+?)\1/g, '<b>$2</b>')
-        .replaceAll(/([*_])(.+?)\1/g, '<i>$2</i>')
-        .replaceAll(/`(.+?)`/g, '<code>$1</code>')
-        .replaceAll('\n', '<br>');
+        .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+        .replace(/(\*\*|__)(.+?)\1/g, '<b>$2</b>')
+        .replace(/([*_])(.+?)\1/g, '<i>$2</i>')
+        .replace(/`(.+?)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
     }
   }
 });
