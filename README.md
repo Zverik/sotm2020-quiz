@@ -11,10 +11,11 @@ This is what you need to do:
 
 1. Clone the repo, or better download `index.html` and `quiz.js`.
 2. If needed, translate text in `index.html` into your language.
-3. Prepare the questions file (see below) and replace `sotm2020.js` in `index.html` with its name.
-4. To add images, create `images` directory and put all jpeg and pngs there.
-5. Upload all these files into a new github repo (or commit your changes to a fork).
-6. Go to repo settings, enable github pages on the master branch, share the URL with your players.
+3. Change the title in `index.html` to yours.
+4. Prepare the questions file (see below) and replace `sotm2020.js` in `index.html` with its name.
+5. To add images, create `images` directory and put all jpeg and pngs there.
+6. Upload all these files into a new github repo (or commit your changes to a fork).
+7. Go to repo settings, enable github pages on the master branch, share the URL with your players.
 
 ## Questions file format
 
