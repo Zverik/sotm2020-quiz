@@ -104,7 +104,7 @@ quiz = {
       "explanation": "This is the complete list of OSMF Board woman officers, among 30 people in total. Emilie was the first in 2010, although Kate also started standing up for the elections that year — but was elected three years later.\n\nCurrently of [7 members of the Board](https://wiki.osmfoundation.org/wiki/Officers_%26_Board), none are women or people from Asia, Africa, or South America."
     },
     {
-      "text": "Where is node #1 currently?",
+      "text": "Where is node #1 currently [5th of July 2020]?",
       "answers": [
         "Greenwich prime meridian",
         "A tree in Peter Barth's backyard",
