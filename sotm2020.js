@@ -133,7 +133,7 @@ quiz = {
       "answers": ["stop_area_group", "station", "pole", "stop"],
       "correct": [4],
       "stats": [28, 5, 21, 1],
-      "explanation": "This is a hard question: we know the most popular values are platform and stop_position. 'Station' and 'stop_area_group' are documented and used on 86k and 5k objects. 'Pole' is used three times often than 'stop', 3k and 1k respectively."
+      "explanation": "This is a hard question: we know the most popular values are platform and stop_position. 'Station' and 'stop_area_group' are documented and used on 86k and 5k objects. 'Pole' is used three times more often than 'stop', 3k and 1k respectively."
     },
     {
       "picture": "lines_atlantic.png",
