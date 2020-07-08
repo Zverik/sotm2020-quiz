@@ -4,6 +4,8 @@ This is a simple static single-player trivia quiz game, made for a nice look and
 Thanks to Vue.js authors which made making this game very quick, and to State of the Map 2020 organizers
 that made me do a quiz and then asked for it to be re-playable.
 
+[Play the Quiz!](https://zverik.github.io/sotm2020-quiz/)
+
 ## How to steal the code
 
 You can reuse the code and the template to do your own quiz! The license permits anything, so go ahead.
